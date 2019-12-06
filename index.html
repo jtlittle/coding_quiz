@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Coding Quix: Homework #4</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="welcome">Welcome to the Coding Quiz</h1>
+        <h2 id="countdown">
+        </h2>
+        <h5 id="score">
+        </h5>
+        <h5 id="totalScore">
+        </h5>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Question</label>
+                <textarea class="form-control" type="text" id = "questionBox" placeholder="Questions are gonna go here" readonly></textarea>
+                <br>
+                <button type="button" class="btn btn-primary" id="btn1"> 1 </button>
+                <button type="button" class="btn btn-primary" id="btn2"> 2 </button>
+                <button type="button" class="btn btn-primary" id="btn3"> 3 </button>
+                <button type="button" class="btn btn-primary" id="btn4"> 4 </button>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Submit" id = "submit">
+        </form>
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
