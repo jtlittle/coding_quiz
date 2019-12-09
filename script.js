@@ -33,13 +33,21 @@ var timeInterval = 0;
 //clear the screen elements
 questionEl.style.display = "none";
 questionTitle.style.display = "none";
+totalEl.style.display = "none";
 button1.style.display = "none";
 button2.style.display = "none";
 button3.style.display = "none";
 button4.style.display = "none";
 
-
+// this function displays the questions
 function questionDisplay() {
+  if (i >= questions.length) {
+    clearInterval(timeInterval);
+    return console.log("game over");
+
+  }
+  //displa the questions and get rid of the start button
+  startButton.style.display = "none";
   questionEl.style.display = "block";
   questionTitle.style.display = "block";
   button1.style.display = "block";
@@ -78,15 +86,16 @@ function checkAnswer(value) {
 
   i++;
   correctScore();
-  if (i === questions.length) {
+  if (i >= questions.length) {
     finalDisplay();
-  }
+  } else
   questionDisplay();
 }
 
-// var quizBegin = confirm("Are you Ready to take the test?");
 
+//this function calculates the timer and decriments it
 function timer() {
+  clearInterval(timeInterval);
   timeInterval = setInterval(function () {
     timerEl.textContent = timeLeft + " seconds remaining";
     timeLeft--;
@@ -100,16 +109,16 @@ function timer() {
   }, 1000);
 }
 
+//this function runs when there is a correct score
 function correctScore() {
-  correctScoreEl.textContent = "Your correct Answers are : " + correctAns;
+  correctScoreEl.textContent = "Correct Answers : " + correctAns;
 }
-// function wrongScore() {
-//   wrongScoreEl.textContent = "Your wrong Answers are " + wrongAns;
-// }
 
-//start the quiz
+
+//start the quiz function
 startButton.addEventListener("click", function () {
   timer();
+  totalEl.style.display = "none";
   questionDisplay();
   correctScore();
   finalScore();
@@ -117,10 +126,13 @@ startButton.addEventListener("click", function () {
 
 // final score function
 function finalScore() {
-  totalEl.textContent = "Your total score is : " + (correctAns - wrongAns);
+  totalEl.style.display = "block";
+  totalEl.textContent = "Total Score: " + (correctAns - wrongAns);
 }
 
+//final display clears question elements
 function finalDisplay() {
+  clearInterval(timeInterval);
   questionEl.style.display = "none";
   questionTitle.style.display = "none";
   button1.style.display = "none";
@@ -130,15 +142,5 @@ function finalDisplay() {
   finalScore();
 }
 
-// //submit button function
-// function submitButton() {
-//   event.stopPropagation;
-//   console.log("submitted");
-//   i++;
-// }
-
-// run the functions
-
-// wrongScore();
 
 
