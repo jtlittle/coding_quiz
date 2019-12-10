@@ -22,6 +22,26 @@ var questions = [
     choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
     answer: "3"
   },
+  {
+    title: "Which of the following are loops?",
+    choices: ["foreach", "while", "for", "if/else"],
+    answer: "4"
+  },
+  {
+    title: "Which symbols are used in an array?",
+    choices: ["[ ]", "( )", "' '", "&&"],
+    answer: "1"
+  },
+  {
+    title: "What syntax do you put around a string?",
+    choices: ["cashtags", "parenthesis", "backticks", "quotations"],
+    answer: "4"
+  },
+  {
+    title: "java is to javascript as ham is to ",
+    choices: ["squirrels", "hamsters", "alligators", "manatees"],
+    answer: "2"
+  },
 ];
 var correctAns = 0;
 var wrongAns = 0;
@@ -133,12 +153,14 @@ function finalScore() {
 //final display clears question elements
 function finalDisplay() {
   clearInterval(timeInterval);
-  questionEl.style.display = "none";
+  // questionEl.style.display = "none";
   questionTitle.style.display = "none";
   button1.style.display = "none";
   button2.style.display = "none";
   button3.style.display = "none";
   button4.style.display = "none";
+  var userScore = prompt("Enter your initials to the high scores");
+questionEl.textContent = (userScore + " " + timeInterval);
   finalScore();
 }
 
